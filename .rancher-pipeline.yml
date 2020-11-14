@@ -9,6 +9,12 @@ stages:
         cd /go/src/github.com/rancher/pipeline-example-go
         go build -o bin/hello-server
         go test -cover
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: golang:1.11
+      shellScript: |-
+        echo test
 - name: Publish
   steps:
   - publishImageConfig:
